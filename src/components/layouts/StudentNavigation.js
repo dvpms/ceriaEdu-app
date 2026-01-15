@@ -12,9 +12,9 @@ export default function StudentNavigation() {
     { name: 'Home', href: '/dashboard', icon: <Home size={24} /> },
     { name: 'Kuis', href: '/kuis', icon: <FlaskConical size={24} /> },
     { name: 'Materi', href: '/materi', icon: <BookOpen size={24} /> },
-    // { name: 'Games', href: '/games', icon: <Gamepad2 size={24} /> },
+    { name: 'Games', href: '/games', icon: <Gamepad2 size={24} /> },
     { name: 'Peringkat', href: '/leaderboard', icon: <Trophy size={24} /> },
-    { name: 'Profile', href: '/profile', icon: <User size={24} /> },
+    { name: 'Akun', href: '/account', icon: <User size={24} /> },
     // Profile bisa ditambahkan nanti
   ];
 
@@ -54,20 +54,21 @@ export default function StudentNavigation() {
 
       {/* --- MOBILE NAVIGATION (Bottom Bar) --- */}
       {/* Tampil di Mobile, Hidden di Layar Sedang ke atas (md:hidden) */}
-      <nav className="md:hidden fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 h-16 flex justify-around items-center shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
-        {navItems.map((item) => (
-          <Link 
-            key={item.href} 
-            href={item.href}
-            className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-colors ${
-              isActive(item.href) ? 'text-blue-600' : 'text-gray-400'
-            }`}
-          >
-            {/* Clone element agar bisa ubah ukuran icon jika perlu */}
-            {item.icon} 
-            <span className="text-[10px] font-medium">{item.name}</span>
-          </Link>
-        ))}
+      <nav className="md:hidden fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 h-16 flex items-center shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] overflow-x-auto">
+        <div className="flex flex-row gap-2 px-2 min-w-max">
+          {navItems.map((item) => (
+            <Link 
+              key={item.href} 
+              href={item.href}
+              className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-colors ${
+                isActive(item.href) ? 'text-blue-600' : 'text-gray-400'
+              }`}
+            >
+              {item.icon} 
+              <span className="text-[10px] font-medium">{item.name}</span>
+            </Link>
+          ))}
+        </div>
       </nav>
     </>
   );
