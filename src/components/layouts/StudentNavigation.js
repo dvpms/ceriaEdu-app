@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, BookOpen, Trophy, Gamepad2, User } from 'lucide-react';
+import { Home, BookOpen, Trophy, Gamepad2, User, FlaskConical } from 'lucide-react';
 import {useSelector} from 'react-redux';
 
 export default function StudentNavigation() {
@@ -10,9 +10,11 @@ export default function StudentNavigation() {
 
   const navItems = [
     { name: 'Home', href: '/dashboard', icon: <Home size={24} /> },
+    { name: 'Kuis', href: '/kuis', icon: <FlaskConical size={24} /> },
     { name: 'Materi', href: '/materi', icon: <BookOpen size={24} /> },
-    { name: 'Games', href: '/games', icon: <Gamepad2 size={24} /> },
-    { name: 'Rank', href: '/leaderboard', icon: <Trophy size={24} /> },
+    // { name: 'Games', href: '/games', icon: <Gamepad2 size={24} /> },
+    { name: 'Peringkat', href: '/leaderboard', icon: <Trophy size={24} /> },
+    { name: 'Profile', href: '/profile', icon: <User size={24} /> },
     // Profile bisa ditambahkan nanti
   ];
 
